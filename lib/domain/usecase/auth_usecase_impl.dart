@@ -11,7 +11,7 @@ class LoginUseCase extends UseCase<Either<String, LoginResp>, Map<String,dynamic
   final AuthRepo _repo;
   LoginUseCase(this._repo);
   @override
-  FutureOr<Either<String, LoginResp>> call(Map<String, dynamic> params) {
+  Future<Either<String, LoginResp>> call(Map<String, dynamic> params) {
     return _repo.requestLogin(params);
   }
 

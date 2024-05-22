@@ -10,17 +10,17 @@ class LocalDataSourceImpl extends LocalDatasource {
   LocalDataSourceImpl(this._sharedPreferences);
 
   @override
-  FutureOr<String?> getString(String key) {
+  Future<String?> getString(String key) async {
     return _sharedPreferences.getString(key);
   }
 
   @override
-  FutureOr<bool> remove(String key) {
+  Future<bool> remove(String key) {
     return _sharedPreferences.remove(key);
   }
 
   @override
-  FutureOr<bool> saveString(String key, String value) {
+  Future<bool> saveString(String key, String value) {
     return _sharedPreferences.setString(key,value);
   }
 

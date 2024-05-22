@@ -2,7 +2,7 @@
 import 'dart:async';
 
 abstract class LocalDatasource {
-  FutureOr<bool> saveString(String key, String value);
-  FutureOr<bool> remove (String key);
-  FutureOr<String?> getString (String key);
+  Future<bool> saveString(String key, String value);
+  Future<bool> remove (String key);
+  Future<String?> getString (String key);
 }

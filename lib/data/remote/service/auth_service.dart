@@ -6,10 +6,10 @@ import 'package:retrofit/http.dart';
 import '../../models/LoginResp.dart';
 
 part 'auth_service.g.dart';
-@RestApi(baseUrl: "")
+@RestApi(baseUrl: "http://192.168.4.130:8080/api")
 abstract class AuthService {
   factory AuthService(Dio dio) = _AuthService;
 
-  @POST("/login")
+  @POST("http://192.168.4.130:8080/api/login")
   Future<LoginResp> requestLogin(@Body() Map<String, dynamic> body);
 }

@@ -14,7 +14,7 @@ class AuthRepoImpl extends AuthRepo {
   AuthRepoImpl(this._localDatasource, this._remoteDataSource);
 
   @override
-  FutureOr<Either<String, LoginResp>> requestLogin(Map<String, dynamic> body) async{
+  Future<Either<String, LoginResp>> requestLogin(Map<String, dynamic> body) async{
     try{
       final res = await _remoteDataSource.requestLogin(body);
       await _localDatasource.saveString("token", res.accessToken);

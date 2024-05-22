@@ -6,7 +6,7 @@ part 'LoginResp.g.dart';
 @freezed
 class LoginResp with _$LoginResp {
   const factory LoginResp({
-    @JsonKey(name: 'access_token') required String accessToken,
+    @JsonKey(name: 'accessToken') required String accessToken,
   }) = _LoginResp;
 
   factory LoginResp.fromJson(Map<String, dynamic> json) =>

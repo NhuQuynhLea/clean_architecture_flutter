@@ -12,7 +12,7 @@ class RemoteDataSourceImpl extends RemoteDataSource{
   RemoteDataSourceImpl(this._authService);
 
   @override
-  FutureOr<LoginResp> requestLogin(Map<String, dynamic> body) {
+  Future<LoginResp> requestLogin(Map<String, dynamic> body) {
     return _authService.requestLogin(body);
   }
 
