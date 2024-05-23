@@ -1,8 +1,8 @@
-
 import 'dart:async';
 
-import 'package:clean_architecture_flutter/data/local/local_datasource.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'local_datasource.dart';
 
 class LocalDataSourceImpl extends LocalDatasource {
   final SharedPreferences _sharedPreferences;
@@ -21,7 +21,6 @@ class LocalDataSourceImpl extends LocalDatasource {
 
   @override
   Future<bool> saveString(String key, String value) {
-    return _sharedPreferences.setString(key,value);
+    return _sharedPreferences.setString(key, value);
   }
-
 }

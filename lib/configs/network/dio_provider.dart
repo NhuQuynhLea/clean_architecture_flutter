@@ -1,8 +1,8 @@
 import 'dart:developer';
 
-import 'package:clean_architecture_flutter/data/local/local_datasource.dart';
 import 'package:dio/dio.dart';
 
+import '../../login/data/local/local_datasource.dart';
 
 class DioProvider {
   static Dio instance(LocalDatasource localDataSource) {
@@ -11,18 +11,17 @@ class DioProvider {
     dio.interceptors.add(
       QueuedInterceptorsWrapper(
         onRequest: (options, handler) async {
-          String? token =
-          await localDataSource.getString("token");
+          String? token = await localDataSource.getString("token");
           if (token != null) {
             options.headers["Authorization"] = 'Bearer $token';
           }
           options.headers["Accept"] = 'application/json';
           print(
             "onRequest: ${options.uri}\n"
-                "data=${options.data}\n"
-                "method=${options.method}\n"
-                "headers=${options.headers}\n"
-                "queryParameters=${options.queryParameters}",
+            "data=${options.data}\n"
+            "method=${options.method}\n"
+            "headers=${options.headers}\n"
+            "queryParameters=${options.queryParameters}",
           );
 
           return handler.next(options);
